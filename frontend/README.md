@@ -1,4 +1,4 @@
-# frontend
+# django_tasks_client2
 
 ## Project setup
 ```

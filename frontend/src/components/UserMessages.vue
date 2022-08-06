@@ -7,40 +7,37 @@
             <div class="message-body">
                 {{ message.body }}
             </div>
-            <button @click="deleteMessage(message)">Delete</button>
+            
         </div>
     </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      // tasks
+      messages: [],
+    };
+  },
+  methods: {
+    async getData() {
+      try {
+        // fetch tasks
+        const response = await this.$http.get(
+          "http://localhost:8000/api/messages/"
+        );
+        // set the data returned as tasks
+        this.messages = response.data;
+      } catch (error) {
+        // log the error
+        console.log(error);
+      }
+    },
 
-    import axios from 'axios';
-    export default {
-        data() {
-            return {
-                messages: [],
-            };
-        },
-        methods: {
-            async getMessages() {
-                try {
-                    const response = await axios.get('http:localhost:8000/api/messages/');
-                    this.messages = response.data;
-                } catch (error) {
-                    console.log(`There was an error fetching: ${error}`);
-                }
-            },
-            deleteMessage(message) {
-                axios.delete(`http:localhost:8000/api/messages/${message.id}/`)
-                    .then(() => {
-                        this.messages = this.messages.filter(m => m.id !== message.id);
-                    }).catch(error => {
-                        console.log(`There was an error deleting: ${error}`);
-                    });
-            },
-        },
-        created() {
-            this.getMessages();
-        },
-    }
+  },
+  created() {
+    this.getData();
+  },
+};
 </script>

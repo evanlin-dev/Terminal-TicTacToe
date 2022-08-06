@@ -4,4 +4,4 @@ from .models import Message
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Message
-        fields = ('id', 'message', 'created_at')
+        fields = ('id', 'body', 'created_at')

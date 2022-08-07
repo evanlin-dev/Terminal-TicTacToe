@@ -6,8 +6,7 @@
             </div>
             <div class="message-body">
                 {{ message.body }}
-            </div>
-            
+            </div>        
         </div>
     </div>
 </template>
@@ -16,18 +15,15 @@
 export default {
   data() {
     return {
-      // tasks
       messages: [],
     };
   },
   methods: {
     async getData() {
       try {
-        // fetch tasks
         const response = await this.$http.get(
           "http://localhost:8000/api/messages/"
         );
-        // set the data returned as tasks
         this.messages = response.data;
       } catch (error) {
         // log the error

@@ -14,3 +14,8 @@ cd frontend
 npm install -g @vue/cli
 npm install axios
 ```
+
+How to run local server:
+```
+python3 backend/manage.py runserver
+```

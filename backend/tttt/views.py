@@ -35,3 +35,6 @@ def message_edit(request, pk):
     elif(request.method == 'DELETE'):
         message.delete()
         return HttpResponse(status=204)
+
+def index(request):
+    return render(request, 'tttt/index.html')

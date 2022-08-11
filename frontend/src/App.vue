@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <UserMessages />
+    <TicTacToeBoard />
   </div>
 </template>
 
 <script>
 import UserMessages from "./components/UserMessages.vue";
+import TicTacToeBoard from "./components/TicTacToeBoard.vue";
 
 export default {
   name: "App",
   components: {
-    UserMessages
+    UserMessages,
+    TicTacToeBoard,
 },
 };
 </script>

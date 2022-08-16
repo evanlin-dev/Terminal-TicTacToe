@@ -37,4 +37,9 @@ def message_edit(request, pk):
         return HttpResponse(status=204)
 
 def index(request):
-    return render(request, 'tttt/index.html')
+    return render(request, 'tttt/index.html', {})
+
+def room(request, room_name):
+    return render(request, 'tttt/room.html', {
+        'room_name': room_name
+    })

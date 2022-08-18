@@ -1,4 +1,4 @@
-# chat/consumers.py
+# tttt/consumers.py
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 

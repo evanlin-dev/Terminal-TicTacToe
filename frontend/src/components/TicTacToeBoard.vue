@@ -1,17 +1,19 @@
 <template>
   <div>
     <div>
-    </div>
-    <div class="board">
+      <b-container class="board">
         <span v-for="(n, row) in getBoard.length" :key="row">
-            <span v-for="(m, col) in getBoard[0].length" :key="col">
-                <span v-if="getBoard[row][col] === 'X'" class="cell cell-x">X</span>
-                <span v-else-if="getBoard[row][col] === 'O'" class="cell cell-o">O</span>
-                <span v-else class="cell cell-empty" @click="playerMove(row, col, turn)"> _ </span>
-            </span>
-            <br>
+          <b-row class="row justify-content-md-center" :key="row">
+            <b-col cols="1" v-for="(n, col) in getBoard[row].length" :key="col">
+              <b-button v-on:click="playerMove(row, col, turn)" :disabled="getBoard[row][col] !== '_'" variant="success">
+                {{ getBoard[row][col] }}
+              </b-button>
+            </b-col>
+          </b-row>
         </span>
+      </b-container>
     </div>
+    
     
   </div>
     
@@ -34,6 +36,23 @@ export default {
         player1 : "X",
         player2 : "O",
         turn : "X",
+        items: [
+          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
+          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
+          {
+            age: 89,
+            first_name: 'Geneva',
+            last_name: 'Wilson',
+            _rowVariant: 'danger'
+          },
+          {
+            age: 40,
+            first_name: 'Thor',
+            last_name: 'MacDonald',
+            _cellVariants: { age: 'info', first_name: 'warning' }
+          },
+          { age: 29, first_name: 'Dick', last_name: 'Dunlap' }
+        ],
     };
   }, 
   methods: {
